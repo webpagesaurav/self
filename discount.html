@@ -98,7 +98,7 @@ function calculate() {
   let amount = parseFloat(amountInput.value);
 
   if (!isNaN(percentage) && !isNaN(amount)) {
-    result.textContent = ((percentage / 100) * amount).toFixed(2);
+    result.textContent = amount-((percentage / 100) * amount).toFixed(2);
   } else {
     result.textContent = 0;
   }
