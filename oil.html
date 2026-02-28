@@ -34,7 +34,7 @@
 
     <h3 id="result1"></h3>
     <h3 id="result2"></h3>
-    <h3 id="result3"></h3>
+    
 
     <script>
         function calculate() {
@@ -43,22 +43,22 @@
 
             if(price && grams) {
                 const pricePerKg = (price / grams) * 1000;
-                const multiply13 = pricePerKg * 13;
-                const multiply13650 = pricePerKg * 13.650;
+                
+                const multiply15 = pricePerKg * 15;
 
                 document.getElementById("result1").innerText =
                     "1 Kg Price = ₹" + pricePerKg.toFixed(2);
 
                 document.getElementById("result2").innerText =
-                    "1 Kg Price × 13 = ₹" + multiply13.toFixed(2);
+                    "1 Kg Price × 15 = ₹" + multiply15.toFixed(2);
 
-                document.getElementById("result3").innerText =
-                    "तेल 1 Kg Price × 13.650 = ₹" + multiply13650.toFixed(2);
+            
+           
             } else {
                 document.getElementById("result1").innerText =
                     "Please enter valid values!";
                 document.getElementById("result2").innerText = "";
-                document.getElementById("result3").innerText = "";
+                
             }
         }
     </script>
