@@ -1,0 +1,112 @@
+<link href='https://fonts.googleapis.com/css?family=Comic Neue' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/iasaurav/javascript@main/table.css">
+<style>
+body {
+    font-family: 'Comic Neue';font-size: 22px;
+}
+
+  
+.round-img {
+  width: 200px;
+  height: 200px;
+}
+
+</style>
+<script>
+  
+  
+  
+
+  function copyText(t) {
+    navigator.clipboard.writeText(t);
+  }
+
+document.addEventListener("DOMContentLoaded", () => {
+const [id, gid] = "16MN8hw-PW8D0XPW4qOA2CN6yf2cSjAh0eJnm6MRV4Zk:589739380".trim().split(':');
+ 
+          
+    const base = r => `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json&tq&gid=${gid}&range=${r}`;
+
+  
+    const tables = [ 
+  
+           
+        
+      
+      
+ 
+   
+   
+         
+{
+        hint:"</br></br>",
+        id: "drive",
+        range: "A1:E",
+        headers: ['', ''],
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `${v(4)
+  ? `${v(4)}`
+  : ``
+
+}`;
+        }
+      },
+   
+            
+
+   
+   {
+        hint:"",
+        id: "drive",
+        range: "A3:E50",
+        headers: ['', ''],
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `${v(2)
+  ? `<a href="${v(1)}"target="_self"><img src="https://lh3.googleusercontent.com/d/${v(2).match(/\/d\/([^/]+)/)?.[1] || ""}"class="round-img"oncontextmenu="return false;"></a>&nbsp&nbsp;`
+  : ``}`;
+        }
+      },
+   
+  
+   
+   
+
+      {
+        hint:"",
+        id: "drive",
+        range: "J1:K1",
+        headers: ['', ''],
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `${v(0)
+  ? `${v(0)}${v(1)}`
+  : ``
+
+}`;
+        }
+      }
+];
+
+// Auto-create containers and fetch data
+    tables.forEach(({hint,id,range,headers,row }) => {
+      const container = document.createElement("div");
+      container.id = id;
+      container.textContent = "Loading...";
+      document.body.appendChild(container);
+
+      fetch(base(range))
+        .then(r => r.text())
+        .then(d => {
+          const rows = JSON.parse(d.slice(47, -2)).table.rows;
+          let html = `${hint}<table><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>`;
+          rows.forEach(r => html += row(r.c));
+          container.innerHTML = html + '</table></br>';
+        });
+    });
+  });
+  
+  
+</script>
+
