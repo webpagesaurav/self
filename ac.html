@@ -1,0 +1,111 @@
+
+
+
+
+
+
+<style>
+.round-img {
+  width: 200px;
+  height: 200px;
+}
+
+</style>
+<script>
+  
+  
+  
+
+  function copyText(t) {
+    navigator.clipboard.writeText(t);
+  }
+
+document.addEventListener("DOMContentLoaded", () => {
+const [id, gid] = "16MN8hw-PW8D0XPW4qOA2CN6yf2cSjAh0eJnm6MRV4Zk:1897283431".trim().split(':');
+ 
+          
+    const base = r => `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json&tq&gid=${gid}&range=${r}`;
+
+  
+    const tables = [ 
+  
+           
+        
+      
+      
+ 
+   
+   
+         
+{
+        
+        id: "drive",
+        range: "A1:E20",
+        headers: ['', ''],
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `${v(2)
+  ? `${v(2)}`
+  : ``
+
+}`;
+        }
+      },
+   
+            
+
+   
+   
+  
+   
+   
+
+      
+      
+      
+      
+      
+      
+      
+   
+      
+   
+   
+   
+   
+   
+      
+    
+
+
+
+
+
+
+
+
+];
+
+// Auto-create containers and fetch data
+    tables.forEach(({id,range,headers,row }) => {
+      const container = document.createElement("div");
+      container.id = id;
+      container.textContent = "Loading...";
+      document.body.appendChild(container);
+
+      fetch(base(range))
+        .then(r => r.text())
+        .then(d => {
+          const rows = JSON.parse(d.slice(47, -2)).table.rows;
+          let html = `<table><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>`;
+          rows.forEach(r => html += row(r.c));
+          container.innerHTML = html + '</table></br>';
+        });
+    });
+  });
+  
+  
+</script>
+
+
+
