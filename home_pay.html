@@ -47,7 +47,7 @@ const [id, gid] = prompt("password p hai").trim().split(':');
           const v = i => c[i]?.f || c[i]?.v || '';
           return `${v(2)
   ? `<a 
-onclick="copyText('${v(2)}')"><img src="https://lh3.googleusercontent.com/d/${v(2)}"class="round-img"></a>&nbsp;&nbsp;`
+onclick="copyText('${v(2)}')"><img src="https://lh3.googleusercontent.com/d/${v(1)}"class="round-img"></a>&nbsp;&nbsp;`
   : ``
 }
 `;
