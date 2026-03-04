@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: ['Bank_Name', 'Account Number', 'Ifsc-Code','Bank_Balance','Card','op'],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
-          return `<tr>${v(1) ? `<img src="https://lh3.googleusercontent.com/d/${v(22)}"
+          return `<tr>${v(22) ? `<img src="https://lh3.googleusercontent.com/d/${v(22)}"
            alt="Avatar"
            style="width:300px;height:300px;"><td>${v(6) ? `<span class="copy" onclick="copyText('${v(6)}')">${v(6)}</span>` : ''}
 
