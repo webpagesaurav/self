@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
    {
         id: "bag",
         range: "516462335&range=A2:Z20",
-        headers: ['Bank_Name', 'Account Number', 'Ifsc-Code','Bank_Balance','Card','op'],
+        headers: ['', '', '','','',''],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
           return `${v(22) ? `<div class="flip-card">
