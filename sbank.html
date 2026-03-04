@@ -86,16 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
   
   
-  {
-        id: "creditcard",
-        range: "833145603&range=A22:Z30",
-        headers: ["Name", "Creditcard"],
-        row: c => {
-          const v = i => c[i]?.f || c[i]?.v || '';
-          return `<tr>${v(3) ? `<td>${v(0)}</td>
-          <td><span class="copy" onclick="copyText('${v(1)}')">${v(1)}</span> | <span class="copy" onclick="copyText('${v(2)}')">${v(2)}</span> | <span class="copy" onclick="copyText('${v(3)}')">${v(3)}</span>` : v(3)}</tr>`;
-        }
-      },
+  
   
    
   
@@ -144,6 +135,18 @@ document.addEventListener("DOMContentLoaded", () => {
           
    }
 
+      },
+
+
+              {
+        id: "creditcard",
+        range: "833145603&range=A22:Z30",
+        headers: ["Name", "Creditcard"],
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `<tr>${v(3) ? `<td>${v(0)}</td>
+          <td><span class="copy" onclick="copyText('${v(1)}')">${v(1)}</span> | <span class="copy" onclick="copyText('${v(2)}')">${v(2)}</span> | <span class="copy" onclick="copyText('${v(3)}')">${v(3)}</span>` : v(3)}</tr>`;
+        }
       }
                  
                  
