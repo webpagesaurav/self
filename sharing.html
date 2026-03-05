@@ -28,7 +28,7 @@ body {
   }
 
 document.addEventListener("DOMContentLoaded", () => {
-const [id, gid] = prompt("password p hai").trim().split('|');
+const [id, gid,range] = prompt("password p hai").trim().split('|');
 var base=function(r){return "\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x6F\x63\x73\x2E\x67\x6F\x6F\x67\x6C\x65\x2E\x63\x6F\x6D\x2F\x73\x70\x72\x65\x61\x64\x73\x68\x65\x65\x74\x73\x2F\x64\x2F"+ (id)+ "\x2F\x67\x76\x69\x7A\x2F\x74\x71\x3F\x74\x71\x78\x3D\x6F\x75\x74\x3A\x6A\x73\x6F\x6E\x26\x74\x71\x26\x67\x69\x64\x3D"+ (gid)+ "\x26\x72\x61\x6E\x67\x65\x3D"+ (r)}
   
     
@@ -36,7 +36,7 @@ var base=function(r){return "\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x6F\x63\x73\x2
 {
         hint: "</br></br></br></br></br>",
         id: "drive",
-        range: "A2:Z50",
+        range: range,
         headers: ['', ''],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
