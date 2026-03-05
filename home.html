@@ -40,8 +40,8 @@ var base=function(r){return "\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x6F\x63\x73\x2
         headers: ['', ''],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
-          return `${v(6)
-  ? `<a href="https://drive.google.com/uc?export=download&id=${v(1)}"target="_blank"><img src="https://lh3.googleusercontent.com/d/${v(6).split("/d/")[1].split("/")[0]}"class="round-img"></a>&nbsp;&nbsp;`
+          return `${v(1)
+  ? `<a href="https://drive.google.com/uc?export=download&id=${v(2)}"target="_blank"><img src="https://lh3.googleusercontent.com/d/${v(1).split("/d/")[1].split("/")[0]}"class="round-img"></a>&nbsp;&nbsp;`
   : ``
 }
 `;
