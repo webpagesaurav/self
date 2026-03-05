@@ -47,7 +47,7 @@ body {
 
 document.addEventListener("DOMContentLoaded", () => {
     
-    const st="10PH2yKLq5Jk3ASs8QlocbJBlp9Wt0jNoAppLh1Wo"+prompt("input s").trim();
+    const st="10PH2yKLq5Jk3ASs8QlocbJBlp9Wt0jNoAppLh1Wo"+prompt("input s").trim()+"516462335&range=";
           
     const base = r => `https://docs.google.com/spreadsheets/d/${st}/gviz/tq?tqx=out:json&tq&gid=${r}`;
 
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
    
                 {
         id: "banking",
-        range: "516462335&range=A2:Z20",
+        range: "A2:Z20",
         headers: ['Bank_Name', 'Account Number', 'Ifsc-Code','Bank_Balance','Card','op'],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
               {
         id: "creditcard",
-        range: "833145603&range=A22:Z30",
+        range: "A22:Z30",
         headers: ["Name", "Creditcard"],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
