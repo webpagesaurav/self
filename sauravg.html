@@ -102,9 +102,9 @@ const base=r=>`https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json
 const tables=[
 
 {
-hint:"</br></br>ty",
 id:"drive",
 range:"A2:Z20",
+hint:"</br>sa</br>",
 row:c=>{
 
 const v=i=>c[i]?.f||c[i]?.v||'';
@@ -142,9 +142,10 @@ ${v(3)?`<a href="${v(3)}" target="_blank">Open</a>`:""}
 }
 },
 {
-        hint:"</br>sa</br>",
+      
         id: "driv",
         range: "A1:Z5",
+  hint:"</br>sa</br>",
         headers: ['', ''],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
@@ -164,7 +165,7 @@ ${v(3)?`<a href="${v(3)}" target="_blank">Open</a>`:""}
 
 /* FETCH DATA */
 
-tables.forEach(({hint,id,range,row})=>{
+tables.forEach(({id,range,hint,row})=>{
 
 const container=document.getElementById(id);
 
