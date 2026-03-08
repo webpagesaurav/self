@@ -104,7 +104,7 @@ const tables=[
 {
 id:"drive",
 range:"A2:Z20",
-hint:"</br>sa</br>",
+
 row:c=>{
 
 const v=i=>c[i]?.f||c[i]?.v||'';
@@ -145,7 +145,7 @@ ${v(3)?`<a href="${v(3)}" target="_blank">Open</a>`:""}
       
         id: "driv",
         range: "A1:Z5",
-  hint:"</br>sa</br>",
+  
         headers: ['', ''],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
@@ -165,7 +165,7 @@ ${v(3)?`<a href="${v(3)}" target="_blank">Open</a>`:""}
 
 /* FETCH DATA */
 
-tables.forEach(({id,range,hint,row})=>{
+tables.forEach(({id,range,row})=>{
 
 const container=document.getElementById(id);
 
