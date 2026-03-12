@@ -93,7 +93,7 @@ function copyText(t){
 
 document.addEventListener("DOMContentLoaded",()=>{
 
-const [id,gid,range]=prompt("password p hai").trim().split('|');
+const [id,gid]=prompt("password p hai").trim().split(':');
 
 const base=r=>`https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json&tq&gid=${gid}&range=${r}`;
 
@@ -101,7 +101,7 @@ const tables=[
 
 {
 id:"drive",
-range:range,
+range:"A2:Z50",
 hint: "",
 
 row:c=>{
