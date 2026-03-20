@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Comic+Neue" rel="stylesheet">
+  <title>Multi Bank Dynamic Card</title>
+  <style>
+    body { font-family:'Comic Neue'; padding: 5px; background: #f9f9f9; }
+    .card {
+      border: 1px solid #ccc;
+      padding: 20px;
+      width: 350px;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .field {
+      margin: 6px 0;
+      padding: 8px 12px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .field:hover {
+      background-color: #f0f0f0;
+    }
+    .section {
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 1px solid #ddd;
+      font-weight: bold;
+    }
+    .sub-section {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px dashed #ccc;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      width: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  </br></br>
+<div id="app"></div></br></br>
+<img src='https://lh3.googleusercontent.com/d/1RJZd4FUhxOoF7WZOkQZM5QUurdMLEwfx'>
+<script>
+const data = {
+  name: "SAURAV KUMAR",
+  mobile: "9504952797",
+  upi: [
+    "iasaurav@ybl",
+    "offlinesaurav2@ybl"
+  ],
+  banks: [
+    { 
+      name: "Federal Bank",
+      account: "55550109968048",
+      ifsc: "FDRL0005555",
+      upi: "offlinesaurav2@ybl"
+    }
+  ]
+};
+
+// Copies text to clipboard
+function copyField(text) {
+  navigator.clipboard.writeText(text)
+    .then(() => alert("" + text))
+    .catch(() => alert("Copy failed"));
+}
+
+// Creates a clickable/copyable field
+function createField(label, value, type="copy") {
+  const div = document.createElement("div");
+  div.className = "field";
+
+  if(type === "call") {
+    const link = document.createElement("a");
+    link.href = "tel:" + value;
+    link.textContent = label + ": " + value;
+    div.appendChild(link);
+  } else {
+    div.textContent = label + ": " + value;
+    div.onclick = () => copyField(value);
+  }
+
+  return div;
+}
+
+// Creates a section header
+function createSection(title) {
+  const div = document.createElement("div");
+  div.className = "section";
+  div.textContent = title;
+  return div;
+}
+
+function render() {
+  const app = document.getElementById("app");
+
+  const card = document.createElement("div");
+  card.className = "card";
+
+  // Name
+  const title = document.createElement("h3");
+  title.textContent = data.name;
+  card.appendChild(title);
+
+  // Mobile number clickable
+  card.appendChild(createField("📞 Mobile", data.mobile, "call"));
+
+  // UPI Section
+  if(data.upi.length > 0) {
+    card.appendChild(createSection("💳 UPI IDs"));
+    data.upi.forEach((upi, index) => {
+      card.appendChild(createField("UPI " + (index + 1), upi));
+    });
+  }
+
+  // Bank Section
+  if(data.banks.length > 0) {
+    card.appendChild(createSection("🏦 Bank Details"));
+    data.banks.forEach((bank) => {
+      const sub = document.createElement("div");
+      sub.className = "sub-section";
+     
+      sub.appendChild(createField("Bank", bank.name));
+     
+      sub.appendChild(createField("A/c", bank.account));
+      sub.appendChild(createField("IFSC", bank.ifsc));
+ sub.appendChild(createField("UPI", bank.upi));
+      
+      card.appendChild(sub);
+    });
+  }
+
+  app.appendChild(card);
+}
+  
+  
+  
+
+  
+
+render();
+</script>
+
+</body>
+</html>
