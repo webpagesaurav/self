@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Premium Payment Card</title>
+<link href="https://fonts.googleapis.com/css?family=Comic+Neue" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family:'Comic Neue';
+  background: #f5f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* CARD */
+.card {
+  width: 360px;
+  padding: 25px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  animation: fadeIn 0.8s ease;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* HEADER */
+.header { text-align: center; margin-bottom: 15px; }
+.header h2 { font-weight: 600; font-size: 20px; color: #222; }
+.header span { font-size: 12px; color: #888; }
+
+/* SECTION */
+.section { margin-top: 18px; }
+.section h3 { font-size: 13px; margin-bottom: 8px; color: #666; }
+
+/* ITEM */
+.item {
+  background: #f8f9fc;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.25s;
+}
+.item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* BUTTON */
+.btn {
+  background: #0072ff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 11px;
+  transition: 0.25s;
+}
+.btn:hover { background: #0056cc; }
+
+/* ACTION LINKS */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.actions a {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13px;
+  background: #f1f3f7;
+  color: #333;
+  transition: 0.25s;
+}
+.actions a:hover { background: #e4e8f0; }
+
+/* PAY BUTTON */
+.pay-btn {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #ff512f, #dd2476);
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.25s;
+}
+.pay-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 20px rgba(221,36,118,0.3);
+}
+</style>
+</head>
+
+<body>
+<div id="app"></div>
+
+<script>
+const data = {
+  name: "Saurav Kumar",
+  mobile: "9504952797",
+  bank: [
+    { name: "FEDERAL BANK", account: "55550109968048", ifsc: "FDRL0005555" }
+  ],
+  upi: [
+    "offlinesaurav-6@okaxis",
+    "offlinesaurav@okhdfcbank"
+  ],
+  gpay: "https://gpay.app.goo.gl/pay-T8wH7S8sEGh"
+};
+
+function render() {
+  const app = document.getElementById("app");
+
+  // Render UPI IDs
+  let upiHTML = data.upi.map((u, i) => `
+    <div class="item">
+      <span id="upi${i}">${u}</span>
+      <button class="btn" onclick="copyText('upi${i}')">Copy</button>
+    </div>
+  `).join("");
+
+  // Render Bank Details
+  let bankHTML = data.bank.map((b, i) => `
+    <div class="item">
+      <strong>${b.name}</strong>
+    </div>
+    <div class="item">
+      <span id="acc${i}">${b.account}</span>
+      <button class="btn" onclick="copyText('acc${i}')">Copy</button>
+    </div>
+    <div class="item">
+      <span id="ifsc${i}">${b.ifsc}</span>
+      <button class="btn" onclick="copyText('ifsc${i}')">Copy</button>
+    </div>
+  `).join("</br>");
+
+  app.innerHTML = `
+    <div class="card">
+      <div class="header">
+        <h2>${data.name}</h2>
+        <span>Payment Details</span>
+      </div>
+
+      <div class="actions">
+        <a href="tel:${data.mobile}">📞 Call</a>
+        <a href="https://wa.me/91${data.mobile}" target="_blank">💬 WhatsApp</a>
+      </div>
+
+      <div class="section">
+        <a class="pay-btn" href="${data.gpay}" target="_blank">Pay via Google Pay</a><br>
+        <h3>Bank Details</h3>
+        ${bankHTML}
+      </div>
+      </br>
+      <div class="section">
+        <h3>UPI IDs</h3>
+        ${upiHTML}
+      </div>
+    </div>
+  `;
+}
+
+function copyText(id) {
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Copied: " + text);
+  });
+}
+
+render();
+</script>
+</body>
+</html>
