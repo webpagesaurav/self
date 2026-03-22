@@ -90,12 +90,12 @@ const [id, gid] = "16MN8hw-PW8D0XPW4qOA2CN6yf2cSjAh0eJnm6MRV4Zk:589739380".trim(
       {
         
         id: "drive",
-        range: "J1:K10",
+        range: "F1:F10",
         headers: ['', ''],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
           return `${v(0)
-  ? `${v(0)}${v(1)}`
+  ? `${v(0)}`
   : ``
 
 }`;
