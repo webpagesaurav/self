@@ -60,7 +60,7 @@ const [id, gid] = prompt("s").trim().split(':');
    {
         
         id: "drive",
-        range: "A51:Z80",
+        range: "A51:Z150",
         headers: ['', ''],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
@@ -95,7 +95,7 @@ const [id, gid] = prompt("s").trim().split(':');
    
    {
         id: "spassword",
-        range: "A52:Z150",
+        range: "A51:Z150",
         headers: ["Name", "Username", "Password", "pro","hint"],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
