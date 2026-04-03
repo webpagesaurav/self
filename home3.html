@@ -84,7 +84,7 @@ const [id, gid] = prompt("s").trim().split(':');
         headers: ["Name", "Policy_No | Amount | Date Of Birth | Due-Month"],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
-          return `<tr><td>${v(0)}-${v(5)}</td><td><span class="copy" onclick="copyText('${v(1)}')">${v(1)}</span>  - ${v(2)} - <span class="copy" onclick="copyText('${v(3)}')">${v(3)}</span> - ${v(4)}</td></tr>`;
+          return `<tr><td>${v(0)}</td><td><span class="copy" onclick="copyText('${v(1)}')">${v(1)}</span>  - ${v(2)} - <span class="copy" onclick="copyText('${v(3)}')">${v(3)}</span> - ${v(4)}</td><td>${v(5)}</td></tr>`;
         }
       },
       
