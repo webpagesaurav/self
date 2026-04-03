@@ -65,7 +65,7 @@ const [id, gid] = prompt("s").trim().split(':');
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
           return `${v(2)
-  ? `<a href="${v(1)}"target="_blank"onclick="navigator.clipboard.writeText('${v(2)}')"><img src="https://lh3.googleusercontent.com/d/${v(0).match(/\/d\/([^/]+)/)?.[1] || ""}"class="round-img"oncontextmenu="return false;"></a>&nbsp&nbsp;`
+  ? `<a href="${v(1)}"target="_blank"onclick="navigator.clipboard.writeText('${v(3)}')"><img src="https://lh3.googleusercontent.com/d/${v(2).match(/\/d\/([^/]+)/)?.[1] || ""}"class="round-img"oncontextmenu="return false;"></a>&nbsp&nbsp;`
   : ``}`;
         }
       },
