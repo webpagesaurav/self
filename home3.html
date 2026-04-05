@@ -106,10 +106,23 @@ const [id, gid] = prompt("s").trim().split(':');
           <td><span class="copy" onclick="copyText('${v(5)}')">${v(5)}</span></td>
           </tr>`;
         }
-      }
+      },
+
+        
 
 
-          
+          {
+        
+        id: "driv",
+        range: "A81:Z150",
+        headers: ['', ''],
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `${v(2)
+  ? `<a href="${v(1)}"target="_blank"onclick="navigator.clipboard.writeText('${v(3)}')"><img src="https://lh3.googleusercontent.com/d/${v(2).match(/\/d\/([^/]+)/)?.[1] || ""}"class="round-img"oncontextmenu="return false;"></a>&nbsp&nbsp;`
+  : ``}`;
+        }
+      },
    
    
    
