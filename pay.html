@@ -77,10 +77,9 @@ const data = {
     
     {
       
-      name: "Federal Bank",
-      account: "55550109968048",
-      ifsc: "FDRL0005555",
-      upi: "offlinesaurav-6@okaxis",
+      name: "STATE BANK OF INDIA",
+      account: "38500401139",
+      ifsc: "SBIN0001511",
       statebank:"iasaurav@ybl",
       
     }
@@ -148,12 +147,8 @@ function render() {
     sub.className = "sub-section";
     
     sub.appendChild(createField("Bank", bank.name, false));
-    
     sub.appendChild(createField("A/c", bank.account));
     sub.appendChild(createField("IFSC", bank.ifsc));
-    
-    sub.appendChild(createField("UPI", bank.upi));
-    
     sub.appendChild(createField("statebank", bank.statebank));
     card.appendChild(sub);
   });
