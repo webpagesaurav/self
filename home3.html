@@ -38,11 +38,11 @@ body {
     navigator.clipboard.writeText(t);
   }
 
-document.addEventListener("DOMContentLoaded", () => {
-const [id, gid] = prompt("s").trim().split(':');
+document.addEventListener("DOMContentLoaded", () =>{
+    const id= prompt("s").trim();
  
           
-    const base = r => `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json&tq&gid=${gid}&range=${r}`;
+    const base = r => `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json&tq&gid=516462335&range=${r}`;
 
   
     const tables = [ 
