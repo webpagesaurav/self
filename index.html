@@ -94,8 +94,8 @@ const id= "16MN8hw-PW8D0XPW4qOA2CN6yf2cSjAh0eJnm6MRV4Zk".trim();
         headers: ["Name", "Creditcard","Available "],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
-          return `<tr>${v(0) ? `<td>${v(0)}</td>
-          <td><a href='sms:1900?body=PORT ${v(1)}'>${v(1)}</a></td><td>${v(3)}</td>` : v(2)}</tr>`;
+          return `<tr>${v(0) ? `
+          <td><a href='sms:1900?body=PORT ${v(1)}'>${v(0)}</a></td><td>${v(1)}</td><td>${v(3)}</td>` : v(2)}</tr>`;
         }
       }
  
