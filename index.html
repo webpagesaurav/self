@@ -39,7 +39,7 @@ body {
   }
 
 document.addEventListener("DOMContentLoaded", () => {
-const [id, gid] = "16MN8hw-PW8D0XPW4qOA2CN6yf2cSjAh0eJnm6MRV4Zk:589739380".trim().split(':');
+const [id, gid] = "16MN8hw-PW8D0XPW4qOA2CN6yf2cSjAh0eJnm6MRV4Zk".trim();
  
           
     const base = r => `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json&tq&gid=${gid}&range=${r}`;
@@ -50,7 +50,7 @@ const [id, gid] = "16MN8hw-PW8D0XPW4qOA2CN6yf2cSjAh0eJnm6MRV4Zk:589739380".trim(
            {
         
         id: "drive",
-        range: "E1:E10",
+        range: "589739380&range=E1:E10",
         headers: ['', ''],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
@@ -73,7 +73,7 @@ const [id, gid] = "16MN8hw-PW8D0XPW4qOA2CN6yf2cSjAh0eJnm6MRV4Zk:589739380".trim(
    {
         
         id: "drivle",
-        range: "A3:E100",
+        range: "589739380&range=A3:E100",
         headers: ['', ''],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
@@ -81,14 +81,23 @@ const [id, gid] = "16MN8hw-PW8D0XPW4qOA2CN6yf2cSjAh0eJnm6MRV4Zk:589739380".trim(
   ? `<a href="${v(1)}"target="_blank"><img src="https://lh3.googleusercontent.com/d/${v(2).match(/\/d\/([^/]+)/)?.[1] || ""}"class="round-img"oncontextmenu="return false;"></a>&nbsp&nbsp;`
   : ``}`;
         }
-      }
+      },
 
    
   
    
    
 
-      
+      {
+        id: "port",
+        range: "2039575012&range=A4:Z30",
+        headers: ["Name", "Creditcard","Available "],
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `<tr>${v(0) ? `<td>${v(0)}</td>
+          <td><a href='sms:1900?body=PORT ${v(1)}'>${v(1)}</a></td><td>${v(3)}</td>` : v(2)}</tr>`;
+        }
+      }
  
       
       
