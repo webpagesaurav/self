@@ -73,10 +73,10 @@ const id= "16MN8hw-PW8D0XPW4qOA2CN6yf2cSjAh0eJnm6MRV4Zk".trim();
         {
         id: "insurance",
         range: "589739380&range=A121:Z140",
-        headers: ["Name", "Policy_No | Amount | Date Of Birth | Due-Month"],
+        headers:["Name","referral-code"],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
-          return `<tr>${v(2) ? `<td><span class="copy" onclick="copyText('${v(1)}')">${v(0)}</span></td><td><span class="copy" onclick="copyText('${v(2)}')">${v(2)}</span></td><td>${v(3)}</td>` : v(2)}</tr>`;
+          return `<tr>${v(2) ? `<td><span class="copy" onclick="copyText('${v(2)}')">${v(0)}</span></td><td><span class="copy" onclick="copyText('${v(2)}')">${v(2)}</span></td>` : v(2)}</tr>`;
         }
       }, 
                  
