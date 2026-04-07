@@ -76,7 +76,7 @@ const id= "16MN8hw-PW8D0XPW4qOA2CN6yf2cSjAh0eJnm6MRV4Zk".trim();
         headers: ["Name", "Policy_No | Amount | Date Of Birth | Due-Month"],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
-          return `<tr>${v(2) ? `<td>${v(0)}</td><td><span class="copy" onclick="copyText('${v(1)}')">${v(1)}</span>  - ${v(2)} - <span class="copy" onclick="copyText('${v(3)}')">${v(3)}</span> - ${v(4)}</td>` : v(2)}</tr>`;
+          return `<tr>${v(2) ? `<td><span class="copy" onclick="copyText('${v(1)}')">${v(0)}</span></td><td><span class="copy" onclick="copyText('${v(1)}')">${v(1)}</span></td><td>${v(2)}</td>` : v(2)}</tr>`;
         }
       }, 
                  
