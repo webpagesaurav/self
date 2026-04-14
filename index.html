@@ -1,0 +1,163 @@
+<link href="https://fonts.googleapis.com/css?family=Comic+Neue" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Comic Neue';font-size: 22px;
+}
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 400px;
+  }
+
+  th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  th {
+    background-color: #F88379;
+    color: #fff;
+  }
+
+
+.round-img {
+  width: 200px;
+  height: 200px;
+}
+
+</style>
+<script>
+  
+  
+  
+
+  function copyText(t) {
+    navigator.clipboard.writeText(t);
+  }
+
+document.addEventListener("DOMContentLoaded", () => {
+var id="\x31\x36\x4D\x4E\x38\x68\x77\x2D\x50\x57\x38\x44\x30\x58\x50\x57\x34\x71\x4F\x41\x32\x43\x4E\x36\x79\x66\x32\x63\x53\x6A\x41\x68\x30\x65\x4A\x6E\x6D\x36\x4D\x52\x56\x34\x5A\x6B".trim()
+          
+    const base = r => `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json&tq&gid=${r}`;
+
+  
+    const tables = [ 
+  
+           
+        
+      
+      
+ 
+   
+   
+  
+
+   
+   {
+        hint:"",
+        id: "drivle",
+        range: "589739380&range=A3:E30",
+        headers: ['', ''],
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `${v(3)
+  ? `${v(3)}`
+  : ``}`;
+        }
+      },
+        
+        
+
+  
+   
+   
+
+ 
+      
+      
+   {
+        hint:"",
+        id: "dripvle",
+        range: "589739380&range=A201:E300",
+        headers: ['', ''],
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `${v(2)
+  ? `<a href="${v(1)}"><img src="https://lh3.googleusercontent.com/d/${v(2).match(/\/d\/([^/]+)/)?.[1] || ""}"class="round-img"oncontextmenu="return false;"></a>&nbsp&nbsp;`
+  : ``}`;
+        }
+      },
+      
+      
+      
+      
+   
+      
+   
+   
+   
+   
+   
+      
+    
+
+
+
+
+
+
+
+
+];
+
+// Auto-create containers and fetch data
+    tables.forEach(({hint,id,range,headers,row }) => {
+      const container = document.createElement("div");
+      container.id = id;
+      container.textContent = "Loading...";
+      document.body.appendChild(container);
+
+      fetch(base(range))
+        .then(r => r.text())
+        .then(d => {
+          const rows = JSON.parse(d.slice(47, -2)).table.rows;
+          let html = `${hint}<br><table><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>`;
+          rows.forEach(r => html += row(r.c));
+          container.innerHTML = html + '</table></br>';
+        });
+    });
+  });
+  
+  
+</script>
+
+<style>
+div.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+div.gallery-item {
+  margin: 5px;
+  border: 1px solid #ccc;
+  width: 180px;
+}
+
+div.gallery-item:hover {
+  border: 1px solid #777;
+}
+
+div.gallery-item img {
+  width: 100%;
+  height: auto;
+}
+
+div.gallery-item div.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
