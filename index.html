@@ -74,10 +74,10 @@ var id="\x31\x36\x4D\x4E\x38\x68\x77\x2D\x50\x57\x38\x44\x30\x58\x50\x57\x34\x71
   {
         id: "insurance",
         range: "293734037&range=A41:Z50",
-        headers: ["Name", "Policy_No | Amount | Date Of B"],
+        headers: ["Name", "No | Expiry"],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
-          return `<tr>${v(1) ? `<td>${v(0)}</td><td><span class="copy" onclick="copyText('${v(1)}')">${v(1)}</span>  - ${v(2)}` : v(1)}</tr>`;
+          return `<tr>${v(1) ? `<td>${v(3)}'>${v(0)}</a></td><td><span class="copy" onclick="copyText('${v(1)}')">${v(1)}</span>  - ${v(2)}` : v(1)}</tr>`;
         }
       }, 
    
