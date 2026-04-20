@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
    {
         id: "apinsurance",
         range: "A251:Z280",
-        headers: ["Name", "Policy_No | Amount | Date Of Birth | Due-Month"],
+        headers:[],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
           return `${v(0) ? `${v(0)}` : v(0)}`;
