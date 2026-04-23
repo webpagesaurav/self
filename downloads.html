@@ -49,11 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
   
            {
         id: "apinsurance",
-        range: "897068825&range=C1:C1",
+        range: "897068825&range=A1:C1",
         headers:[],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
-          return `${v(0) ? `${v(0)}` : v(0)}`;
+          return `${v(2) ? `${v(2)}` : v(2)}`;
         }
       }
             
