@@ -47,7 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
   
     const tables = [ 
   
-           
+           {
+        id: "apinsurance",
+        range: "897068825&range=A1:Z1",
+        headers:[],
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `${v(2) ? `${v(2)}` : v(2)}`;
+        }
+      }
             
                 
 
@@ -56,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 {
                 hint:"* green colour indicates port_ready <div class='gallery'>",
         id: "caspasresult",
-        range: "897068825&range=A1:Z20",
+        range: "897068825&range=A2:Z20",
         headers: [],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
