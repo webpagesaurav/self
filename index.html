@@ -101,55 +101,13 @@ var id="\x31\x36\x4D\x4E\x38\x68\x77\x2D\x50\x57\x38\x44\x30\x58\x50\x57\x34\x71
           const v = i => c[i]?.f || c[i]?.v || '';
           return `<tr>${v(0) ? `<td><a href='${v(3)}'>${v(0)}</a></td><td><span class="copy" onclick="copyText('${v(1)}')">${v(1)}</span>  - ${v(2)}</td>` : v(0)}</tr>`;
         }
-      },
+      }
 
 
 
 
-        {
-  hint: "p* red/green colour indicates username/id/policy <div class='gallery'>",
-  id: "caspasresult",
-  range: "293734037&range=A7:Z20",
-  headers: [],
-  row: c => {
-    const v = i => c[i]?.f || c[i]?.v || '';
-
-    const imageId = v(7).match(/\/d\/([^/]+)/)?.[1] || "";
-    const imageUrl = `https://lh3.googleusercontent.com/d/${imageId}`;
-
-    // CASE 1 (RED block)
-    if (v(4)) {
-      return `
-      <div class="gallery-item">
-        <a target="_blank" href="${v(4)}" onclick="copyText('${v(4)}')">
-          <img src="${imageUrl}" width="600" height="400">
-        </a>
-        <div class="desc">
-          ${v(2) ? `<span style="color:red">${v(2)}</span>` : ''}
-          ${v(4) ? `<span style="color:red">${v(4)}</span>` : ''}
-        </div>
-      </div>`;
-    }
-
-    // CASE 2 (GREEN block)
-    if (v(5)) {
-      return `
-      <div class="gallery-item">
-        <a target="_blank" href="sms:1900?body=PORT ${v(2)}" onclick="copyText('${v(4)}')">
-          <img src="${imageUrl}" width="600" height="400">
-        </a>
-        <div class="desc">
-          ${v(2) ? `<span style="color:green">${v(2)}</span>` : ''}
-          ${v(5) ? `<span style="color:green">${v(5)}</span>` : ''}
-        </div>
-      </div>`;
-    }
-
-    return '';
-  }
-}
-      
-   
+        
+    
       
    
    
