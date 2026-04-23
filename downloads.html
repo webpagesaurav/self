@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         headers:[],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
-          return `${v(2) ? `${v(2)}` : v(2)}`;
+          return `${v(0) ? `${v(0)}` : v(0)}`;
         }
       }
             
