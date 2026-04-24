@@ -192,4 +192,12 @@ div.gallery-item div.desc {
       resizeTextarea(textarea); // Resize the textarea based on its content
     });
   });
+
+// Example of dynamically setting content and resizing
+function updateContentAndResize() {
+  const textarea = document.querySelector('.auto-resize');
+  textarea.value = 'New dynamic content that needs resizing.';
+  resizeTextarea(textarea); // Call the resize function after updating content
+}
+    
 </script>
