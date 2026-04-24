@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Options Strikes Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .call {
+      color: green;
+    }
+    .put {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  
+
+  <table>
+    <thead>
+      <tr>
+        <th>CE (Call)</th>
+        <th>Strike</th>
+        <th>PE (Put)</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <script>
+    // Example string input
+    let sp = prompt("NSE:NIFTY260428|50|23900");
+
+    // Split the string by "|"
+    let parts = sp.split("|");
+
+    // Extract expiry, step, and spot
+    let exp = parts[0];  // Extract everything after "NSE:NIFTY"
+    const step = parseInt(parts[1], 10);  // Ensure step is an integer
+    const spot = parseInt(parts[2], 10);  // Ensure spot is an integer
+
+    // Function to generate strikes based on start, end, and step
+    function generateStrikes(start, end, step) {
+      const arr = [];
+      if (start <= end) {
+        for (let i = start; i <= end; i += step) arr.push(i);
+      } else {
+        for (let i = start; i >= end; i -= step) arr.push(i);
+      }
+      return arr;
+    }
+
+    // Function to generate the table dynamically
+    function generateTable() {
+      if (isNaN(spot) || isNaN(step) || !exp) {
+        alert('Invalid input data! Please check the values.');
+        return;
+      }
+
+      const calls = generateStrikes(spot, spot - 500, step); // Call strikes (descending)
+      const puts = generateStrikes(spot, spot + 500, step);  // Put strikes (ascending)
+
+      const maxRows = Math.max(calls.length, puts.length);
+
+      const tbody = document.getElementById("tableBody");
+      tbody.innerHTML = "";  // Clear existing rows
+
+      for (let i = 0; i < maxRows; i++) {
+        const tr = document.createElement("tr");
+
+        const ce = exp+"C"+calls[i] !== undefined ? calls[i] : "";
+        const pe = exp+"P"+puts[i] !== undefined ? puts[i] : "";
+
+        tr.innerHTML = `
+          <td class="call">
+            <a href='https://in.tradingview.com/chart/bFG3tN8i/?symbol=${ce}' target='_blank'>${ce}</a>
+          </td>
+          <td>${spot}</td>
+          <td class="put">
+            <a href='https://in.tradingview.com/chart/bFG3tN8i/?symbol=${pe}' target='_blank'>${pe}</a>
+          </td>
+        `;
+
+        tbody.appendChild(tr);
+      }
+    }
+
+    // Initial render on page load
+    generateTable();
+  </script>
+
+</body>
+</html>
