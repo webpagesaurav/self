@@ -174,3 +174,22 @@ div.gallery-item div.desc {
   text-align: center;
 }
 </style>
+
+
+
+<script>
+  window.addEventListener('load', () => {
+    const textareas = document.querySelectorAll('.auto-resize'); // Select all textareas
+
+    // Function to resize the textarea height based on its content
+    function resizeTextarea(textarea) {
+      textarea.style.height = 'auto'; // Reset height to auto to shrink when text is deleted
+      textarea.style.height = `${textarea.scrollHeight}px`; // Set the height to content's height
+    }
+
+    // Loop through all textareas and adjust their height
+    textareas.forEach(textarea => {
+      resizeTextarea(textarea); // Resize the textarea based on its content
+    });
+  });
+</script>
