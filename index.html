@@ -177,27 +177,37 @@ div.gallery-item div.desc {
 
 
 
+<style>
+    /* Basic styling for the textareas */
+    textarea {
+      width: 100%;
+      min-height: 50px; /* Minimum height */
+      resize: none; /* Disable manual resizing */
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box; /* Make sure padding does not affect width */
+    }
+</style>
 <script>
-  window.addEventListener('load', () => {
-    const textareas = document.querySelectorAll('.auto-resize'); // Select all textareas
-
-    // Function to resize the textarea height based on its content
+    // Function to resize a single textarea based on its content
     function resizeTextarea(textarea) {
-      textarea.style.height = 'auto'; // Reset height to auto to shrink when text is deleted
-      textarea.style.height = `${textarea.scrollHeight}px`; // Set the height to content's height
+      textarea.style.height = 'auto';  // Reset height to auto to shrink when text is deleted
+      textarea.style.height = `${textarea.scrollHeight}px`; // Set height based on content height
     }
 
-    // Loop through all textareas and adjust their height
-    textareas.forEach(textarea => {
-      resizeTextarea(textarea); // Resize the textarea based on its content
-    });
-  });
+    // Function to resize all textareas with the 'auto-resize' class
+    function resizeAllTextareas() {
+      const textareas = document.querySelectorAll('.auto-resize');  // Select all textareas with the class 'auto-resize'
+      textareas.forEach(resizeTextarea); // Apply the resize function to each textarea
+    }
 
-// Example of dynamically setting content and resizing
-function updateContentAndResize() {
-  const textarea = document.querySelector('.auto-resize');
-  textarea.value = 'New dynamic content that needs resizing.';
-  resizeTextarea(textarea); // Call the resize function after updating content
-}
-    
-</script>
+    // Call resizeAllTextareas when the page loads
+    window.addEventListener('load', resizeAllTextareas);
+
+    // Optional: Resize textareas when the window is resized (for responsive layouts)
+    window.addEventListener('resize', resizeAllTextareas);
+  </script>
+
+
