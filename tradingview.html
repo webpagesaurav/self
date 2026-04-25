@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Options</title>
+</head>
+<body>
+
+<p>Select a new car from the list.</p>
+
+<select id="mySelect" onchange="myFunction()">
+  <!-- The options will be added dynamically here -->
+</select>
+
+<p>When you select a new car, a function is triggered which outputs the value of the selected car.</p>
+
+<p id="demo"></p>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>CE</th>
+    <th>PE</th>
+  </tr>
+  <tbody id="optionsTable">
+    <!-- Dynamic rows will be added here -->
+  </tbody>
+</table>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+<script>
+// CSV URL
+var carsCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTigleVyk6a3L-bTIkGJjiRqsWQjDkjKvkipq_iSsdGsk_Es2WREouZPO5EyfRTYDxhGq7VxAJm-j9u/pub?gid=589739380&single=true&range=A100:B105&output=csv";
+
+// Fetch the CSV file and parse it
+fetch(carsCSV)
+  .then(response => response.text())
+  .then(data => {
+    // Parse the CSV data
+    Papa.parse(data, {
+      complete: function(results) {
+        var select = document.getElementById("mySelect");
+        // Dynamically create options from CSV
+        results.data.forEach(row => {
+          var option = document.createElement("option");
+          option.value = row[1];  // Assuming 1st column is the value
+          option.text = row[0];   // Assuming 2nd column is the display name
+          select.appendChild(option);
+        });
+      }
+    });
+  });
+
+// Function to handle the dropdown selection
+function myFunction() {
+  var selectedValue = document.getElementById("mySelect").value;
+  document.getElementById("demo").innerHTML = "You selected: " + selectedValue;
+
+  // Split the string by "|"
+  let parts = selectedValue.split("|");
+
+  // Extract expiry, step, and spot
+  let id = parts[0];  // Extract everything after "NSE:NIFTY"
+  const step = parseInt(parts[1], 10);  // Ensure step is an integer
+  const spot = parseInt(parts[2], 10);  // Ensure spot is an integer
+
+  // Get the table body element
+  var tableBody = document.getElementById("optionsTable");
+
+  // Clear any existing rows
+  tableBody.innerHTML = "";
+
+  // Generate rows based on the spot and step values
+  for (let strike = spot; strike <= spot + 1000; strike += step) {
+    let row = document.createElement("tr");
+    
+    // Create CE (Call) and PE (Put) links
+    let ceCell = document.createElement("td");
+    ceCell.innerHTML = `<a href='https://in.tradingview.com/chart/bFG3tN8i/?symbol=${id}C${strike}'>${strike}</a>`;
+    
+    let peCell = document.createElement("td");
+    peCell.innerHTML = `<a href='https://in.tradingview.com/chart/bFG3tN8i/?symbol=${id}P${strike}'>${strike}</a>`;
+
+    row.appendChild(ceCell);
+    row.appendChild(peCell);
+    
+    tableBody.appendChild(row);
+  }
+}
+</script>
+
+</body>
+</html>
