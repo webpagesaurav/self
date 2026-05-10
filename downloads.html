@@ -40,10 +40,11 @@ body {
 
 document.addEventListener("DOMContentLoaded", () => {
 
- const id=prompt("s").trim();
-          
-    const base = r => `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json&tq&gid=${r}`;
+ const id= prompt("s password hai").trim();
 
+const hack="I-ih2dSJdES1fH-Yj4Yd83alrgUMEQBCWiUntA"
+          
+    const base = r => `https://docs.google.com/spreadsheets/d/${id}${hack}/gviz/tq?tqx=out:json&tq&gid=${r}`;
   
     const tables = [ 
   
