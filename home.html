@@ -76,10 +76,10 @@ div.gallery-item div.desc {
 
 document.addEventListener("DOMContentLoaded", () => {
 const id= prompt("s password hai").trim();
- 
-          
-    const base = r => `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json&tq&gid=${r}`;
 
+const hack="I-ih2dSJdES1fH-Yj4Yd83alrgUMEQBCWiUntA"
+          
+    const base = r => `https://docs.google.com/spreadsheets/d/${id}${hack}/gviz/tq?tqx=out:json&tq&gid=${r}`;
   
     const tables = [ 
   
