@@ -50,47 +50,19 @@ const hack="I-ih2dSJdES1fH-Yj4Yd83alrgUMEQBCWiUntA"
   
            {
         id: "apinsurance",
-        range: "897068825&range=A1:C1",
+        range: "657844466&range=j81:j100",
         headers:[],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
-          return `${v(2) ? `${v(2)}` : v(2)}`;
+          return `${v(0) ? `${v(0)}` : v(0)}`;
         }
-      },
+      }
             
                 
 
 
 
-{
-                hint:"* green colour indicates port_ready <div class='gallery'>",
-        id: "caspasresult",
-        range: "897068825&range=A2:Z20",
-        headers: [],
-        row: c => {
-          const v = i => c[i]?.f || c[i]?.v || '';
-          return `
-          
-           ${v(1) ? `
 
-           
-           
-<div class="gallery-item">
-  <a target="_blank" href="https://drive.google.com/uc?export=download&id=${v(1)}"><img src="https://lh3.googleusercontent.com/d/${v(1)}"width="600" height="400">
-   
-  </a>
-  <div class="desc">
-  ${v(1) ? `
-    <a target="_blank" href="https://drive.google.com/uc?export=download&id=${v(1)}"style="color:green">${v(0)}</a>` : ''}
-  
-  
-  
-  
-  ` : ''}
-  </div>
-</div>`;
-        }
-      }
             
       
       
