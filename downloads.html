@@ -48,26 +48,36 @@ const hack="I-ih2dSJdES1fH-Yj4Yd83alrgUMEQBCWiUntA"
   
     const tables = [ 
 
-{hint:"documents ",
-        id: "apinsurance",
-        range: "657844466&range=L81:L100",
-        headers:[],
+{
+                hint:"",
+        id: "caspasresult",
+        range: "657844466&range=j81:j81",
+        headers: [],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
-          return `${v(0) ? `${v(0)}` : v(0)}`;
+          return `${v(0)}`;
         }
       },
-
-        
-           {hint:"image",
-        id: "apinsurance",
-        range: "657844466&range=J81:J100",
-        headers:[],
+      
+      
+      
+      
+      
+      {
+                hint:"<div class='gallery'>",
+        id: "caspasresult",
+        range: "293734037&range=A82:Z100",
+        headers: [],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
-          return `${v(0) ? `${v(0)}` : v(0)}`;
+          return `<div class="gallery-item">
+  <a href="https://drive.google.com/uc?export=download&id=${v(3)}" onclick="copyText('${v(5)}')">
+  <img src="https://lh3.googleusercontent.com/d/${v(2)}"width="600" height="400"></a>
+<div class="desc">
+<span style='color:black'>${v(4)}</span></br><span style='color:red'>${v(5)}</span></br><span style='color:black'>${v(6)}</span></br>
+    </div></div>`;
         }
-      }
+      },
             
                 
 
