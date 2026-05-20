@@ -48,7 +48,17 @@ const hack="I-ih2dSJdES1fH-Yj4Yd83alrgUMEQBCWiUntA"
   
     const tables = [ 
 
-
+{
+  hint:"56",
+  id: "caspult",
+  range: "657844466&range=A81:I93",
+  headers: [],
+  row: c => {
+    const v = i => c[i]?.f || c[i]?.v || '';
+    return `<a href='${v(3)}'>${v(0).replace(/\b\w/g, c => c.toUpperCase())}</a>`;
+  },
+  after: rows => rows.join(' | ')
+},
         
 
 
