@@ -47,16 +47,7 @@ const hack="I-ih2dSJdES1fH-Yj4Yd83alrgUMEQBCWiUntA"
     const base = r => `https://docs.google.com/spreadsheets/d/${id}${hack}/gviz/tq?tqx=out:json&tq&gid=${r}`;
   
     const tables = [ 
-{
-  hint:"",
-  id:"capispult",
-  range:"657844466&range=A81:I93",
-  headers:[],
-  row:(c,i,a)=>{
-    const v=x=>c[x]?.f||c[x]?.v||'';
-    return `<a href='${v(3)}'>${v(0)}</a>${i<a.length-1?' | ':''}`;
-  }
-},
+
 
         
 
@@ -66,23 +57,14 @@ const hack="I-ih2dSJdES1fH-Yj4Yd83alrgUMEQBCWiUntA"
 {
                 hint:"",
         id: "caspult",
-        range: "657844466&range=A81:I92",
+        range: "657844466&range=A81:I93",
         headers: [],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
           return `<a href='${v(3)}'>${v(0)}</a>  |  `;
         }
       },
-{
-                hint:"",
-        id: "capult",
-        range: "657844466&range=A93:I93",
-        headers: [],
-        row: c => {
-          const v = i => c[i]?.f || c[i]?.v || '';
-          return `<a href='${v(3)}'>${v(0)}</a>`;
-        }
-      },
+
 
         
       {
