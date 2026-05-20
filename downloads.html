@@ -47,10 +47,21 @@ const hack="I-ih2dSJdES1fH-Yj4Yd83alrgUMEQBCWiUntA"
     const base = r => `https://docs.google.com/spreadsheets/d/${id}${hack}/gviz/tq?tqx=out:json&tq&gid=${r}`;
   
     const tables = [ 
-  
+
+{
+        id: "apinsurance",
+        range: "657844466&range=L81:L100",
+        headers:[],
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `${v(0) ? `${v(0)}` : v(0)}`;
+        }
+      }
+
+        
            {
         id: "apinsurance",
-        range: "657844466&range=k81:k100",
+        range: "657844466&range=J81:J100",
         headers:[],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
