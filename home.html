@@ -2,24 +2,30 @@
 <html>
 <head>
   <link href="https://fonts.googleapis.com/css?family=Comic+Neue" rel="stylesheet">
-
 <style>
 select {
--webkit-appearance: none;
   appearance: none;
   background: transparent;
   border: none;
-  
-  /* Link typography */
   color: #0066cc;
   text-decoration: underline;
-  font-size: 16px;
   cursor: pointer;
-  
-  /* Optional: removes the empty space for the arrow */
+  font-size: 1rem;
   padding: 0;
   margin: 0;
 }
+
+select:hover {
+  color: #003399;
+  text-decoration: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+</style>
+<style>
+
 
   
 body {
