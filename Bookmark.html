@@ -1,0 +1,200 @@
+<link href="https://fonts.googleapis.com/css?family=Comic+Neue" rel="stylesheet">
+
+<style>
+    
+body,select {
+    font-family: 'Comic Neue';font-size: 22px;
+}
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 400px;
+  }
+
+  th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  th {
+    background-color: #F88379;
+    color: #fff;
+  }
+
+
+.round-img {
+  width: 200px;
+  height: 200px;
+}
+
+</style>
+<script>
+  
+  
+  
+
+  function copyText(t) {
+    navigator.clipboard.writeText(t);
+  }
+
+document.addEventListener("DOMContentLoaded", () => {
+var id="\x31\x36\x4D\x4E\x38\x68\x77\x2D\x50\x57\x38\x44\x30\x58\x50\x57\x34\x71\x4F\x41\x32\x43\x4E\x36\x79\x66\x32\x63\x53\x6A\x41\x68\x30\x65\x4A\x6E\x6D\x36\x4D\x52\x56\x34\x5A\x6B".trim()
+          
+    const base = r => `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json&tq&gid=${r}`;
+
+  
+    const tables = [ 
+  
+           
+        
+      
+      
+ 
+   
+   
+  
+
+   
+   {
+        hint:"<div class='gallery'>",
+        pint:"</div>",
+        id: "drivle",
+        range: "64276299&range=A11:Z165",
+        headers: ['', ''],
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `${v(2)
+  ? `<div class="gallery-item">
+  <a target="_blank" href="${v(1)}" onclick="copyText('${v(1)}')">
+  <img src="https://lh3.googleusercontent.com/d/${v(2).split("/d/")[1].split("/")[0]}"width="600" height="400"></a>
+<div class="desc">
+<span style='color:black'>${v(0)}</span></div></div>`
+  : ``}`;
+        }
+      },
+        
+        
+
+  
+   
+   
+
+ 
+      
+      
+   
+      
+      
+
+
+
+        
+    
+      
+   
+   
+   
+   
+   
+      
+    
+
+
+
+
+
+
+
+
+];
+
+// Auto-create containers and fetch data
+    tables.forEach(({hint,id,range,headers,row}) => {
+      const container = document.createElement("div");
+      container.id = id;
+      container.textContent = "Loading...";
+      document.body.appendChild(container);
+
+      fetch(base(range))
+        .then(r => r.text())
+        .then(d => {
+          const rows = JSON.parse(d.slice(47, -2)).table.rows;
+          let html = `${hint}<br><table><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>`;
+          rows.forEach(r => html += row(r.c));
+          container.innerHTML = html + '</table></br>';
+        });
+    });
+  });
+  
+  
+</script>
+
+<style>
+div.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+div.gallery-item {
+  margin: 5px;
+  border: 1px solid #ccc;
+  width: 180px;
+}
+
+div.gallery-item:hover {
+  border: 1px solid #777;
+}
+
+div.gallery-item img {
+  width: 100%;
+  height: auto;
+}
+
+div.gallery-item div.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
+
+
+
+<style>
+    /* Basic styling for the textareas */
+    textarea {
+      width: 100%;
+      min-height: 50px; /* Minimum height */
+      resize: none; /* Disable manual resizing */
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box; /* Make sure padding does not affect width */
+    }
+</style>
+<script>
+    // Function to resize a single textarea based on its content
+    function resizeTextarea(textarea) {
+      textarea.style.height = 'auto';  // Reset height to auto to shrink when text is deleted
+      textarea.style.height = `${textarea.scrollHeight}px`; // Set height based on content height
+    }
+
+    // Function to resize all textareas with the 'auto-resize' class
+    function resizeAllTextareas() {
+      const textareas = document.querySelectorAll('.auto-resize');  // Select all textareas with the class 'auto-resize'
+      textareas.forEach(resizeTextarea); // Apply the resize function to each textarea
+    }
+
+    // Call resizeAllTextareas when the page loads
+    window.addEventListener('load', resizeAllTextareas);
+
+    // Optional: Resize textareas when the window is resized (for responsive layouts)
+    window.addEventListener('resize', resizeAllTextareas);
+  </script>
+
+
+
+
+
