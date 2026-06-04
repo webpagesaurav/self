@@ -76,7 +76,9 @@ var id="\x31\x36\x4D\x4E\x38\x68\x77\x2D\x50\x57\x38\x44\x30\x58\x50\x57\x34\x71
    {hint: "",
         id: "result",
         range: "589739380&range=A121:Z140",
-        headers: ['Roll code - Roll No.', 'School/College', 'Year', 'Marks', '%', 'Remarks'],
+        headers: ['mobile', 'flipkart', 'jiomart', 'bigbasket', 'myntra', 'Remarks'],
+            
+    
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
           return `<tr><td>${v(0)}</td><td>${v(4)}</td><td>${v(5)}</td><td>${v(6)}</td><td>${v(7)}</td></tr>`;
