@@ -190,12 +190,13 @@ const hack="";
     
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
-          return `<tr>
+          return `<tr>${v(1) ? `
           <td>
 <a href='#' onclick="copyText('${v(16)}')">${v(0)}</a></td>
-<td><a href='#' onclick="copyText('${v(16)}')">${v(16)}</td>
-<td><a href='#' onclick="copyText('${v(17)}')">${v(17)}</td>
-</tr>`;
+<td><span class="copy" onclick="copyText('${v(16)}')">${v(16)}</span></td>
+<td><span class="copy" onclick="copyText('${v(17)}')">${v(17)}</span></td>
+    
+</tr>` : v(1)}</tr>`;
         }
       },
 
