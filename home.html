@@ -182,7 +182,22 @@ const hack="";
       
     
     
-
+{hint: "",
+        id: "result",
+        range: "516462335&range=A1:Z20",
+        headers: ['name','upi','upi'],
+            
+    
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `<tr>
+          <td>
+<a href='#' onclick="copyText('${v(16)}')">${v(0)}</a></td>
+<td><a href='#' onclick="copyText('${v(16)}')">${v(16)}</td>
+<td><a href='#' onclick="copyText('${v(17)}')">${v(17)}</td>
+</tr>`;
+        }
+      },
 
       
     
