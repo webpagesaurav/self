@@ -190,7 +190,7 @@ const hack="";
     
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
-          return `<tr>${v(1) ? `<td>${v(0)} | ${v(2)} | ₹${v(1)}</td>
+          return `<tr>${v(1) ? `<td>${v(2)} | ${v(0)} | ₹${v(1)}</td>
 <td><span class="copy" onclick="copyText('${v(16)}')">${v(16)}</span></td>
 <td><span class="copy" onclick="copyText('${v(17)}')">${v(17)}</span></td>
     
