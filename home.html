@@ -267,7 +267,23 @@ ${v(9) ? `| <span class="copy" onclick="copyText('${v(9)}')">${v(9)}</span>` : '
           return `${v(0)}`;
         }
       },
-      
+
+{hint: "",
+        id: "result",
+        range: "657844466&range=A201:Z220",
+        headers: ['mobile|Company|No.Of days', 'bigbasket','flipkart', 'jiomart', 'myntra'],
+            
+    
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `<tr>
+          <td><a href='#' onclick="copyText('${v(0)}')">${v(0)}</a> | ${v(5)}</td>
+          <td>${v(1)}</td><td>${v(2)}</td><td>${v(3)}</td><td>${v(4)}</td></tr>`;
+        }
+      },
+
+
+  
       
 
 
