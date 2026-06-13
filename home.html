@@ -273,11 +273,11 @@ ${v(9) ? `| <span class="copy" onclick="copyText('${v(9)}')">${v(9)}</span>` : '
         range: "657844466&range=A201:Z220",
         headers: [
     "mobile|Company|No.Of days",
-    "<a href=\"https://www.bigbasket.com/\" target=\"_blank\">Big-Basket</a>",
-    "<a href=\"https://www.flipkart.com/\" target=\"_blank\">Flipkart</a>",
-    "<a href=\"https://www.jiomart.com/?tab=groceries\" target=\"_blank\">Jiomart</a>",
-    "<a href=\"https://www.myntra.com/shop/men\" target=\"_blank\">Myntra</a>"
-  ],
+    "Big-Basket","Flipkart","Jiomart","Myntra",
+          
+          
+ 
+ ],
     
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
@@ -289,7 +289,16 @@ ${v(9) ? `| <span class="copy" onclick="copyText('${v(9)}')">${v(9)}</span>` : '
       },
 
   
-      
+      {
+                hint:"",
+        id: "caspasresult",
+        range: "657844466&range=j81:j90",
+        headers: [],
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `${v(0)}`;
+        }
+      },
 
 
 
