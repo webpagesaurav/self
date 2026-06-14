@@ -157,10 +157,10 @@ const hack="";
   
 
 
-   {
+   { hint:"",
         id: "creditcard",
         range: "516462335&range=A2:Z20",
-        headers: ["Name", "UPI", "UPI", "UPI"],
+        headers: ["Name|Balance|whatsapp", "UPI", "UPI", "UPI"],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
           return `<tr>${v(1) ? `<td>${v(0)}
