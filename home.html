@@ -183,24 +183,7 @@ const hack="";
       
     
     
-{hint: "",
-        id: "result",
-        range: "516462335&range=A1:Z20",
-        headers: ['name','upi','upi'],
-            
-    
-        row: c => {
-          const v = i => c[i]?.f || c[i]?.v || '';
-          return `<tr><td>${v(1) ? `${v(19)}| ₹${v(1)} | ${v(0)}</td>
 
-
-
-    <td><span class="copy" onclick="copyText('${v(16)}')">${v(16)}</span></td>
-<td><span class="copy" onclick="copyText('${v(17)}')">${v(17)}</span></td>
-    
-</tr>` : v(1)}</tr>`;
-        }
-      },
 
       
     {
