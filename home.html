@@ -164,7 +164,7 @@ const hack="";
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
           return `<tr>${v(1) ? `<td>${v(0)}
-${v(14) ? ` | <a href='//wa.me/91${v(14)}'target='_blank'>| {v(2)}</a>` : ``}
+${v(14) ? ` | <a href='//wa.me/91${v(14)}'target='_blank'>| ${v(2)}</a>` : ``}
 ${v(19) ? ` | <a href='${v(19)}'>${v(2)}</a>` : `| ${v(1)}`}</td>
                     
           
