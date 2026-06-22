@@ -42,16 +42,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
  const id= prompt("s password hai").trim();
 
-const hack="";
+const [a, b] = id.split("|");
+
           
-    const base = r => `https://docs.google.com/spreadsheets/d/${id}${hack}/gviz/tq?tqx=out:json&tq&gid=${r}`;
+    const base = r => `https://docs.google.com/spreadsheets/d/${a}/gviz/tq?tqx=out:json&tq&gid=${b}&range=${r}`;
   
     const tables = [ 
 
 {
         hint:"</br></br></br><div class='gallery'>",
         id: "chhhhult",
-        range: "1812556768&range=i10:i40",
+        range: "i10:i40",
         headers: [],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
