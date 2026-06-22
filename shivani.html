@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
  const id= prompt("s password hai").trim();
 
-const [a, b] = id.split("|");
+const [a, b] = id.split(":");
 
           
     const base = r => `https://docs.google.com/spreadsheets/d/${a}/gviz/tq?tqx=out:json&tq&gid=${b}&range=${r}`;
