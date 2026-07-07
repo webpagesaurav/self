@@ -160,7 +160,7 @@ const hack="";
    { hint:"",
         id: "creditcard",
         range: "516462335&range=A2:Z20",
-        headers: ["Name|<a href='upi://'>Balance</a>|whatsapp", "UPI", "UPI", "UPI"],
+        headers: ["Name|<a href='upi://pay?pa='>Balance</a>|whatsapp", "UPI", "UPI", "UPI"],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
           return `<tr>${v(1) ? `<td>${v(0)}
