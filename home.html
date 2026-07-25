@@ -159,7 +159,7 @@ const hack="";
           const v = i => c[i]?.f || c[i]?.v || '';
           return `<tr>${v(1) ? `<td>${v(0)}
 ${v(5) ? ` | <a href='//wa.me/91${v(5)}'target='_blank'>₹${v(1)}</a>` : `| ₹${v(1)}`}
-${v(2) ? ` | <a href='${v(2)}'>QR-CODE</a>` : `| ${v(2)}`}</td>
+${v(2) ? ` | <a href='${v(2)}'>QR-CODE</a>|` : `${v(2)}`}</td>
 <td><span class="copy" onclick="copyText('${v(3)}')">${v(3)}</span></td><td><span class="copy" onclick="copyText('${v(4)}')">${v(4)}</span></td>` : v(1)}</tr>`;
         }
       }
