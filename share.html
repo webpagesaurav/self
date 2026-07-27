@@ -114,7 +114,16 @@ const hack="";
       
 
 
-      
+      {
+                hint:"</br>",
+        id: "caspasresult",
+        range: "572960450&range=i51:i",
+        headers: [],
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `${v(0)}`;
+        }
+      },
       
       
                 
