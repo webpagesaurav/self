@@ -253,21 +253,5 @@ ${v(20) ? ` | <a href='${v(20)}'>QR-CODE</a>` : `| ${v(2)}`}</td>
 </html>
 
 
-<script>
-document.getElementById("downloadVCF").onclick = function (e) {
-    e.preventDefault();
-
-    const text = document.getElementById("vcf").value.trim();
-    const blob = new Blob([text], { type: "text/vcard;charset=utf-8" });
-
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "faltu.vcf";
-    a.click();
-
-    URL.revokeObjectURL(url);
-};
-</script>
 
 
