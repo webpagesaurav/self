@@ -102,17 +102,36 @@ const hack="";
       
       
       {
-                hint:"",
-        id: "caspasresult",
-        range: "657844466&range=B12:B12",
-        headers: [],
+        hint:"",
+        id: "gpassword",
+        range: "939646798&range=A13:Z30",
+        headers: ["Name", "Username", "90days","pro/hint"],
         row: c => {
           const v = i => c[i]?.f || c[i]?.v || '';
-          return `${v(0)}`;
+          return `<tr> 
+          <td><a href="${v(6)}"target="_blank"onclick="copyText('${v(2)}')">${v(1)}</a></td>
+          
+          <td><span class="copy" onclick="copyText('${v(2)}')">${v(2)}</span></td> <td><span class="copy" onclick="copyText('${v(5)}')">${v(5)}</span></td> <td><span class="copy" onclick="copyText('${v(0)}')">${v(0)}</span></td>
+         
+         </tr>`;
         }
       },
       
-
+{
+        hint:"<div class='gallery'>",
+        id: "gpassword",
+        range: "939646798&range=A13:Z30",
+        headers: [],
+        row: c => {
+          const v = i => c[i]?.f || c[i]?.v || '';
+          return `
+         ${v(8) ? `<div class='gallery-item'><a target='_blank' href='${v(6)}'><img src='https://lh3.googleusercontent.com/d/${v(7)}' width='600' height='400'oncontextmenu='return false;'></a><div class='desc'>
+<a href='sms:1900?body=PORT ${v(2)}'style='color:black;text-decoration:none;'>${v(2)}</a></br>${v(8)}</div></div>` : ''}
+         
+         
+         `;
+        }
+      }
 
       
       
