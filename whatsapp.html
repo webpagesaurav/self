@@ -1,0 +1,38 @@
+<input
+    type="tel"
+    id="phone"
+    placeholder="Enter 10-digit WhatsApp number"
+    maxlength="10"
+    inputmode="numeric"
+    oninput="myFunction()"
+>
+
+<button type="button" onclick="myFunction()">Open WhatsApp</button>
+
+<script>
+function myFunction() {
+    const input = document.getElementById("phone");
+    const value = input.value.replace(/\D/g, "");
+
+    // Keep only numbers
+    input.value = value;
+
+    // Auto-open when exactly 10 digits are entered
+    if (value.length === 10) {
+        const message = encodeURIComponent(`📦 Parcel Delivery Message
+
+Sir/Madam, आपका पार्सल लेकर आया हूँ। 
+कृपया मेरा कॉल उठा लीजिए या मैसेज करके बता दीजिए कि:
+पार्सल/समान लेना है तो अपना नाम लिखकर मैसेज करें।
+
+पार्सल/समान नहीं लेना है या कैंसिल करना है, तो अपना नाम लिखकर बता दें।
+आपके मोबाइल पर Cancellation OTP आएगा। वह OTP बता दीजिए, OTP बताने पर आपका पार्सल कैंसिल हो जाएगा।
+
+delhivery_office
+https://maps.app.goo.gl/K9iJtM8ToRjzrBaH6
+
+`);
+        window.open(`https://wa.me/91${value}?text=${message}`, "_blank");
+    }
+}
+</script>
